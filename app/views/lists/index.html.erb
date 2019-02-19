@@ -1,0 +1,24 @@
+<h1>Vorhandene To-Do Listen</h1>
+
+<table>
+  <tr>
+    <td><strong>Name of the To-Do List</strong></td>
+    <td><strong>Description</strong></td>
+  </tr>
+</table>
+
+<%@lists.each do |list| %>
+<table>
+  <tr>
+    <td><%= list.title %></td>
+    <td><%= list.description%></td>
+    <td><%= link_to 'Show', list_path(list) %></td>
+    <td><%= link_to 'Edit', edit_list_path(list) %></td>
+    <td><%= link_to 'Löschen', list_path(list),
+                                method: :delete,
+                                data: { confirm: 'Sicher?'} %></td>
+  </tr>
+</table>
+<% end %>
+
+<p><%= link_to 'Neue To-Do Liste erstellen', new_list_path %></p>

@@ -1,0 +1,13 @@
+<p>
+  <strong>To-Do Liste:</strong> <%= @list.title %>
+</p>
+<p>
+  <strong>Inhalt:</strong> <%= @list.description %>
+</p>
+
+<table>
+  <tr>
+    <td><%= link_to 'Zurück', lists_path %> <strong>|</strong></td>
+    <td><%= link_to 'Edit', edit_list_path %></td>
+  </tr>
+</table>
