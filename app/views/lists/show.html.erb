@@ -2,7 +2,7 @@
   <strong>To-Do Liste:</strong> <%= @list.title %>
 </p>
 <p>
-  <strong>Inhalt:</strong> <%= @list.description %>
+  <strong>Beschreibung:</strong> <%= @list.description %>
 </p>
 
 <table>
@@ -11,3 +11,25 @@
     <td><%= link_to 'Edit', edit_list_path %></td>
   </tr>
 </table>
+
+<h1>Einträge</h1>
+<% @list.cards.each do |card| %>
+  <p>
+    <td><strong><%= card.title %></strong></td>
+
+  </p>
+<% end %>
+
+
+<%= form_with(model: [@list, @list.cards.build], local: true) do |form| %>
+<p>
+  <%= form.label :title %><br>
+  <%= form.text_field :title %>
+</p>
+  <p>
+    <%= form.submit %>
+  </p>
+
+
+<% end %>
+
